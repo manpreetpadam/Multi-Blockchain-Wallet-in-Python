@@ -23,9 +23,6 @@ w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 w3.eth.setGasPriceStrategy(medium_gas_price_strategy)
 
-#private_key = os.getenv("PRIVATE_KEY")
-#account_one = Account.from_key(private_key)
-
 #Derive Wallet based on the coin
 def derive_wallets(coin):
     try:
@@ -87,7 +84,5 @@ def send_tx(coin, account, recipient, amount):
     else:
         result=NetworkAPI.broadcast_tx_testnet(signed_tx)
     return result
-   
-#send_tx(account_one,'0x812468f6730e6C0395120ddc563dED5477aCA219',330303308798789789)
 
 
